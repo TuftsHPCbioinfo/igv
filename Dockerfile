@@ -20,7 +20,7 @@ RUN apt-get update && \
         build-essential \
         wget \
         unzip \
-        openjdk-17-jdk \
+        openjdk-21-jdk \
         ca-certificates && \
     ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
     mkdir -p $IGV_DIR && \
@@ -32,15 +32,3 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Create non-root user for security
-RUN useradd -m igvuser && chown -R igvuser:igvuser /opt
-
-# Switch to non-root user
-USER igvuser
-
-# Set working directory
-WORKDIR $IGV_DIR
-
-# Default command
-ENTRYPOINT ["./igv.sh"]
-CMD []
