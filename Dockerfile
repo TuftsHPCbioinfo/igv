@@ -1,8 +1,8 @@
 # Base image
-FROM ubuntu:latest
+FROM ubuntu:24.04
 
 # Metadata
-LABEL maintainer="Yucheng Zhang <zhan4429@purdue.edu>" \
+LABEL maintainer="Yucheng Zhang <yzhang85@tufts.edu>" \
       version="v2.19.1" \
       description="Container with IGV version 2.19.1."
 
